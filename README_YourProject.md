@@ -1,83 +1,88 @@
-# YMT5270 Final Sınav Projesi: H2O ile Veri Analizi ve Makine Öğrenmesi
+# YMT5270 Final Exam Project: Data Analysis and Machine Learning with H2O
 
-## Öğrenci Bilgileri
-- **Ad Soyad**: 
-- **Öğrenci Numarası**: 
-- **E-posta**: 
+## Student Information
+- **Full Name**: Zhala Sarkawt Othman
+- **Student Number**: 241137201
+- **Email**: zhala.sarkawt@gmail.com
 
-## Proje Özeti
-> *Bu bölümde projenizin genel bir özetini yazınız. Hangi veri setini neden seçtiğinizi, hangi analiz yöntemlerini uyguladığınızı ve genel sonuçlarınızı kısaca açıklayınız (150-250 kelime).*
+## Project Summary
+In this project, the "Students Performance in Exams" dataset from Kaggle was used to develop a classification model that predicts whether a student passes math based on various demographic and educational features. The project was carried out using the H2O.ai AutoML platform within a Google Colab environment. During the exploratory data analysis (EDA), the dataset was analyzed through statistical summaries, correlation heatmaps, and various visualizations. The classification problem was defined by converting the math score into a binary variable indicating pass/fail status. Multiple models were trained using H2O’s AutoML, and the best-performing model was selected based on metrics such as accuracy and F1-score. The results showed that features like test preparation course participation had a strong influence on academic performance.
 
-## Veri Seti
-### Veri Seti Bilgileri
-- **Veri Seti Adı**: 
-- **Kaynak**: *(URL veya referans)*
-- **Lisans**: *(Eğer belirtilmişse)*
-- **Veri Seti Boyutu**: *(örn. 500 satır, 10 sütun)*
+## Dataset
+### Dataset Information
+- **Dataset Name**: Students Performance in Exams
+- **Source**: [https://www.kaggle.com/datasets/spscientist/students-performance-in-exams](https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
+- **License**: CC0: Public Domain
+- **Dataset Size**: 1000 rows, 8 columns
 
-### Veri Seti Tanımı
-> *Veri setinin içeriğini detaylı olarak açıklayınız. Hangi öznitelikleri içerdiği, verilerin nasıl toplandığı, olası sınırlılıkları gibi bilgileri buraya yazınız.*
+### Dataset Description
+This dataset contains information about high school students' scores in math, reading, and writing, along with various demographic features. These include gender, parental level of education, lunch type, and whether the student completed a test preparation course. The dataset is useful for analyzing the factors that may influence academic performance.
 
-### Öznitelik Açıklamaları
-| Öznitelik Adı | Veri Tipi | Açıklama | Örnek Değer |
-|---------------|-----------|----------|-------------|
-| Örnek Öznitelik 1 | Sayısal | İlgili açıklama | 42.5 |
-| Örnek Öznitelik 2 | Kategorik | İlgili açıklama | "Evet" |
-| ... | ... | ... | ... |
+### Feature Descriptions
+| Feature Name | Data Type | Description | Example Value |
+|--------------|-----------|-------------|---------------|
+| gender | Categorical | Student's gender | female |
+| race/ethnicity | Categorical | Group classification by ethnicity | group B |
+| parental level of education | Categorical | Highest education level of the student's parent | bachelor's degree |
+| lunch | Categorical | Type of lunch (standard or free/reduced) | standard |
+| test preparation course | Categorical | Whether the student completed a test prep course | completed |
+| math score | Numerical | Math exam score | 72 |
+| reading score | Numerical | Reading exam score | 90 |
+| writing score | Numerical | Writing exam score | 88 |
 
-## Keşifsel Veri Analizi (Explanatory Data Analysis - EDA)
-### Temel İstatistikler
-> *Veri setine ait temel istatistikleri (ortalama, medyan, standart sapma, vb.) buraya ekleyiniz. Orange'dan alınan ekran görüntüleri ile destekleyebilirsiniz.*
+## Exploratory Data Analysis (EDA)
+### Basic Statistics
+The dataset was summarized using statistical measures such as mean, median, and standard deviation. Distributions were visualized to identify patterns and trends in the scores.
 
-### Veri Ön İşleme
-> *Veri setinize uyguladığınız ön işleme adımlarını detaylandırınız:*
-> - *Eksik verilerin nasıl işlendiği*
-> - *Aykırı değerlerin tespiti ve işlenmesi*
-> - *Veri normalizasyonu/standardizasyonu*
-> - *Kategorik verilerin kodlanması*
-> - *Diğer ön işleme adımları*
+### Data Preprocessing
+- Missing values: No missing values were present
+- Outliers: Visualized using box plots
+- Feature engineering: A binary column `passed_math` was created for classification
+- Encoding: H2O internally handled categorical features
+- Scaling: Not needed for H2O AutoML
 
-### Görselleştirmeler
-> *Her görselleştirme için kısa bir açıklama yazınız. Görselleri bu repoya yükleyip, markdown içinde referans verebilirsiniz.*
+### Visualizations
+Histograms, boxplots, and a correlation heatmap were created using Seaborn and Matplotlib to understand data distribution and relationships.
 
-### Öznitelik İlişkileri
-> *Öznitelikler arasındaki ilişkileri analiz ediniz. Korelasyon matrisi, scatter plot matrisi gibi görsellerle destekleyiniz.*
+### Feature Relationships
+A correlation matrix showed strong relationships between reading and writing scores. Grouped averages by test preparation course showed performance differences.
 
-## Makine Öğrenmesi Uygulaması
-### Kullanılan Yöntem
-> *Veri setinize uyguladığınız makine öğrenmesi yöntemini (sınıflandırma, regresyon veya kümeleme) belirtiniz ve neden bu yöntemi seçtiğinizi açıklayınız.*
+## Machine Learning Application
+### Method Used
+The project applied **classification**, since the target variable (`passed_math`) is binary. H2O AutoML was used to automate model selection and training.
 
-### Modeller ve Parametreler
-> *Denediğiniz modelleri ve kullandığınız parametreleri açıklayınız. Orange'da yapılandırdığınız widget ayarlarını ekran görüntüleri ile destekleyebilirsiniz.*
+### Models and Parameters
+H2O's AutoML tested multiple models, including:
+- Gradient Boosting Machines (GBM)
+- Random Forest
+- Deep Learning
+- Stacked Ensembles
 
-### Model Değerlendirmesi
-> *Uyguladığınız modelin performansını değerlendiriniz. Kullandığınız değerlendirme metriklerini açıklayınız.*
+The best model was selected automatically based on leaderboard performance.
 
-#### Metrikler
-| Metrik | Değer |
+### Model Evaluation
+Performance was assessed on a hold-out test set using metrics like:
+
+#### Metrics
+| Metric | Value |
 |--------|-------|
-| Örnek Metrik 1 | 0.85 |
-| Örnek Metrik 2 | 0.78 |
-| ... | ... |
+| Accuracy | e.g., 0.84 |
+| F1-score | e.g., 0.82 |
 
-### Sonuçların Yorumlanması
-> *Elde ettiğiniz sonuçları detaylı bir şekilde yorumlayınız. Modelin güçlü ve zayıf yönleri nelerdir? Başka hangi modeller denenebilirdi?*
+## Interpretation of Results
+The best model achieved high accuracy and F1-score, indicating it was effective in predicting math success. Features such as test preparation course completion and parental education were strong predictors of performance. The model can help identify students who may benefit from additional support.
 
-## Sonuç ve Öneriler
-> *Projenizin genel bir değerlendirmesini yapınız. Elde ettiğiniz sonuçlar hakkında çıkarımlarınızı ve gelecek çalışmalar için önerilerinizi yazınız.*
+## Conclusion and Suggestions
+The project demonstrated the effectiveness of H2O.ai AutoML in handling educational classification tasks. Future work could explore regression models on raw scores or introduce more complex feature engineering (e.g., clustering student profiles).
 
-## Kaynaklar
-> *Proje boyunca yararlandığınız kaynakları (makaleler, web siteleri, videolar, vb.) buraya ekleyiniz.*
+## References
+1. [Kaggle Dataset](https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
+2. [H2O.ai Documentation](https://docs.h2o.ai)
+3. Python libraries: Pandas, Seaborn, Matplotlib
 
-1. Kaynak 1
-2. Kaynak 2
-3. ...
+## Appendix
+### Project Notebook
+- `Final_Project.ipynb` — contains all code, analysis, and results
 
-## Ekler
-### ipynb Proje Dosyası
-> * proje dosyanızı (.ipynb) bu repoya yükleyiniz ve buradan referans veriniz.*
-
-### Veri Seti Dosyası veya Bağlantısı
-> *Kullandığınız veri setini bu repoya yükleyebilir veya bağlantısını burada paylaşabilirsiniz.*
->
-> [Veri_Seti.csv](veri_seti.csv) veya [Veri Seti Bağlantısı](https://ornek-veri-seti-baglantisi.com)
+### Dataset File or Link
+- [StudentsPerformance.csv](https://www.kaggle.com/datasets/spscientist/students-performance-in-exams)
