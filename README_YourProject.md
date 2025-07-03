@@ -42,7 +42,21 @@ The dataset was summarized using statistical measures such as mean, median, and 
 - Scaling: Not needed for H2O AutoML
 
 ### Visualizations
-Histograms, boxplots, and a correlation heatmap were created using Seaborn and Matplotlib to understand data distribution and relationships.
+
+#### Boxplot by Gender
+![Boxplot by Gender](images/Boxplot_by_Gender.png)
+
+#### Correlation Heatmap
+![Correlation Heatmap](images/Correlation_Heatmap.png)
+
+#### Exploratory Data Analysis (EDA)
+![EDA](images/Exploratory_Data_Analysis(EDA).png)
+
+#### Grouped Mean Plot
+![Grouped Mean Plot](images/Grouped_Mean_Plot.png)
+
+#### Visualized Grouped Mean Plot
+![Visualized Grouped Mean Plot](images/visualize_Grouped_Mean_Plot.png)
 
 ### Feature Relationships
 A correlation matrix showed strong relationships between reading and writing scores. Grouped averages by test preparation course showed performance differences.
@@ -70,11 +84,8 @@ Performance was assessed on a hold-out test set using metrics like:
 | F1-score | 0.9534 |
 
 ## Interpretation of Results
-The best model achieved a high F1-score and accuracy of 1.0 on the test set at a classification threshold of 0.9534.
-indicating it was effective in predicting math success. Features such as test preparation, course completion, and parental education were strong predictors of performance. 
+The best model achieved a high F1-score and accuracy of 1.0 on the test set at a classification threshold of 0.9534, indicating it was effective in predicting math success. Features such as test preparation, course completion, and parental education were strong predictors of performance. 
 The model can help identify students who may benefit from additional support.
-
-
 
 ## Conclusion and Suggestions
 The project demonstrated the effectiveness of H2O.ai AutoML in handling educational classification tasks. Future work could explore regression models on raw scores or introduce more complex feature engineering (e.g., clustering student profiles).
