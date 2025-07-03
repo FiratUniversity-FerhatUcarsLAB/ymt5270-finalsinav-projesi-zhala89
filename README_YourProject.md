@@ -66,11 +66,15 @@ Performance was assessed on a hold-out test set using metrics like:
 #### Metrics
 | Metric | Value |
 |--------|-------|
-| Accuracy | e.g., 0.84 |
-| F1-score | e.g., 0.82 |
+| Accuracy | 0.9534 |
+| F1-score | 0.9534 |
 
 ## Interpretation of Results
-The best model achieved high accuracy and F1-score, indicating it was effective in predicting math success. Features such as test preparation course completion and parental education were strong predictors of performance. The model can help identify students who may benefit from additional support.
+The best model achieved a high F1-score and accuracy of 1.0 on the test set at a classification threshold of 0.9534.
+indicating it was effective in predicting math success. Features such as test preparation, course completion, and parental education were strong predictors of performance. 
+The model can help identify students who may benefit from additional support.
+
+
 
 ## Conclusion and Suggestions
 The project demonstrated the effectiveness of H2O.ai AutoML in handling educational classification tasks. Future work could explore regression models on raw scores or introduce more complex feature engineering (e.g., clustering student profiles).
